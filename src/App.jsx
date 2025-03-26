@@ -11,12 +11,12 @@ function App() {
   }, []);
 
   const deleteTask = (taskId) => {
+    const confirmDelete = confirm("Are you sure you want to delete?");
+    if (!confirmDelete) return;
     const updatedTasks = taskList.filter((task) => task.id !== taskId);
     setTaskList(updatedTasks);
 
     localStorage.setItem("to-do-list", JSON.stringify(updatedTasks));
-
-    alert("Task deleted successfully");
   };
 
   const editTask = (taskId) => {
@@ -29,6 +29,14 @@ function App() {
     localStorage.setItem("to-do-list", JSON.stringify(updatedTasks));
   };
 
+  const markAsComplete = (taskId) => {
+    const updatedTasks = taskList.map((task) =>
+      taskId == task.id ? { ...task, Checked: !task.Checked } : task
+    );
+    setTaskList(updatedTasks);
+    localStorage.setItem("to-do-list", JSON.stringify(updatedTasks));
+  };
+
   return (
     <>
       <GetTask taskList={taskList} setTaskList={setTaskList} />
@@ -36,6 +44,7 @@ function App() {
         taskList={taskList}
         deleteTask={deleteTask}
         editTask={editTask}
+        markAsComplete={markAsComplete}
       />
     </>
   );
