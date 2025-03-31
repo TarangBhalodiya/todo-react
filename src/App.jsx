@@ -31,7 +31,7 @@ function App() {
 
   const markAsComplete = (taskId) => {
     const updatedTasks = taskList.map((task) =>
-      taskId == task.id ? { ...task, Checked: !task.Checked } : task
+      taskId == task.id ? { ...task, checked: !task.checked } : task
     );
     setTaskList(updatedTasks);
     localStorage.setItem("to-do-list", JSON.stringify(updatedTasks));

@@ -12,7 +12,7 @@ export default function GetTask({ taskList, setTaskList }) {
     event.preventDefault();
     if (!task.trim()) return;
 
-    const newTask = { id: "task_" + Date.now(), text: task, Checked: false };
+    const newTask = { id: "task_" + Date.now(), text: task, checked: false };
     const updatedTasks = [...taskList, newTask];
 
     setTaskList(updatedTasks);

@@ -8,6 +8,7 @@ export default function TaskList({
 }) {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
+
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
@@ -19,6 +20,13 @@ export default function TaskList({
     task.text.toLowerCase().includes(search.toLowerCase())
   );
 
+  searchTaskList = searchTaskList.filter((task) => {
+    if (filter === "remaining") return task.checked === false;
+    if (filter === "completed")  return task.checked === true;
+    return true; 
+  });
+
+  
   return (
     <div className="custom-container mt-24">
       <div>
@@ -38,7 +46,7 @@ export default function TaskList({
             className="px-3 py-2 text-black rounded-md text-lg"
           >
             <option value="all">All</option>
-            <option value="remaining">remaining</option>
+            <option value="remaining">Remaining</option>
             <option value="completed">Completed</option>
           </select>
         </div>
@@ -49,7 +57,7 @@ export default function TaskList({
             text={item.text}
             id={item.id}
             key={item.id}
-            checked={item.Checked}
+            checked={item.checked}
             deleteTask={deleteTask}
             editTask={editTask}
             markAsComplete={markAsComplete}
