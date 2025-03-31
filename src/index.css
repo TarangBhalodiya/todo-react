@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  background-color: rgb(2, 0, 19);
+  background-color: hsl(174, 65%, 34%);
+  font-family: "Special Elite", sans-serif;
 }
 .custom-container {
   padding: 0 16px;

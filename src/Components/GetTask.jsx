@@ -23,18 +23,17 @@ export default function GetTask({ taskList, setTaskList }) {
 
   return (
     <div className="custom-container relative">
-      <h1>Add your task</h1>
       <form onSubmit={handleSubmitFrom} className="text-center mx-auto my-24">
         <input
           value={task}
           placeholder="Task"
           onChange={handleInputChange}
-          className="px-4 py-2 text-black rounded-bl-md rounded-tl-md w-1/2 text-2xl"
+          className="px-4 py-2 text-amber-400 rounded-bl-md rounded-tl-md w-1/2 text-2xl border border-amber-400 bg-transparent"
           required
         />
         <button
           type="submit"
-          className="px-6 py-2 text-black rounded-tr-md rounded-br-md bg-yellow-500 text-2xl"
+          className="px-6 py-2 text-black rounded-tr-md rounded-br-md bg-amber-400 text-2xl border border-amber-400 hover:border-orange-400 hover:bg-orange-400 transition-all ease-in duration-200"
         >
           Add
         </button>
